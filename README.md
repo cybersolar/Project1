@@ -125,31 +125,26 @@ Here is an example of the playbook elk-install.yml:
   remote_user: elkuser
   become: true
   tasks:
-    # Use apt module
     - name: Install docker.io
       apt:
         update_cache: yes
         name: docker.io
         state: present
-      # Use apt module
     - name: Install pip3
       apt:
         force_apt_get: yes
         name: python3-pip
         state: present
-      # Use pip module
     - name: Install Docker python module
       pip:
         name: docker
         state: present
-      # Use sysctl module
     - name: Use more memory
       sysctl:
         name: vm.max_map_count
         value: "262144"
         state: present
         reload: yes
-      # Use docker_container module
     - name: download and launch a docker elk container
       docker_container:
         name: elk
@@ -161,12 +156,13 @@ Here is an example of the playbook elk-install.yml:
           - 9200:9200
           - 5044:5044
 
-
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 
-| Web_A | 10.0.0.5 |
-| Web_B | 10.0.0.6 |
+| Server | IP address |
+|:------:|:----------:|
+|  Web_A |  10.0.0.5  |
+|  Web_B |  10.0.0.6  |
 
 We have installed the following Beats on these machines:
 
@@ -247,9 +243,10 @@ $ansible-playbook filebeat-playbook.yml
 
 http://52.252.56.93:5601/app/kibana
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-git clone https://github.com/yourusername/project-1.git
+$curl -L -O https://columbia.bootcampcontent.com/columbia-bootcamp/cu-nyc-cyber-pt-07-2020-u-c/blob/master/13-Elk-Stack-Project/Activities/Stu_Day_1/Unsolved/Resources/install-elk.yml
+
 # Move Playbooks and hosts file Into `/etc/ansible`
-$ cp project-1/playbooks/* .
-$ cp project-1/files/* ./files
+
+$ cp install-elk.yml /etc/ansible
