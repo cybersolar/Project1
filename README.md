@@ -243,10 +243,10 @@ $ansible-playbook filebeat-playbook.yml
 
 http://52.252.56.93:5601/app/kibana
 
-As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+### As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 $curl -L -O https://columbia.bootcampcontent.com/columbia-bootcamp/cu-nyc-cyber-pt-07-2020-u-c/blob/master/13-Elk-Stack-Project/Activities/Stu_Day_1/Unsolved/Resources/install-elk.yml
 
-# Move Playbooks and hosts file Into `/etc/ansible`
+Move Playbooks and hosts file Into `/etc/ansible`
 
-$ cp install-elk.yml /etc/ansible
+$cp install-elk.yml /etc/ansible
